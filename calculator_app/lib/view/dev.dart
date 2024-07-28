@@ -207,7 +207,8 @@ class _DevcalcState extends State<Devcalc> {
     // = 누르면 마지막에 입력한 값까지 numReslt에 있는 모든 정수를 나눔
     if (numberController.text.isNotEmpty) {
       numberReslt.add(double.parse(numberController.text));
-    }
+    }else{
+      numberController.text = '';
     double result = numberReslt[0].toDouble();
     for (int i = 1; i < numberReslt.length; i++) {
       result /= numberReslt[i].toDouble();
