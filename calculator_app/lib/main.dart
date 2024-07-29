@@ -2,7 +2,7 @@ import 'package:calculator_app/view/add.dart';
 import 'package:calculator_app/view/dev.dart';
 import 'package:calculator_app/view/home.dart';
 import 'package:calculator_app/view/mul.dart';
-import 'package:calculator_app/view/sub_.dart';
+import 'package:calculator_app/view/sub.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
       routes: {
         '/': (context) => const Home(),
         '1st': (context) => const Addcalc(),
-        '2st': (context) => const Subcalc(),
+        '2st': (context) => const Sub(),
         '3st': (context) => const Mulcalc(),
         '4st': (context) => const Devcalc(),
       },
