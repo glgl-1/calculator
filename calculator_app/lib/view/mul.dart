@@ -72,7 +72,7 @@ class _MulcalcState extends State<Mulcalc> {
                   onPressed: () => buttonp1('1'),
                   style: ElevatedButton.styleFrom(
                       backgroundColor: Color.fromARGB(255, 225, 15, 57),
-                      shape: CircleBorder()),
+                      shape: const CircleBorder()),
                   child: Text('1',
                       style: TextStyle(
                         color: Colors.black,
