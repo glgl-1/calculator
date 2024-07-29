@@ -2,7 +2,7 @@ import 'package:calculator_app/view/add.dart';
 import 'package:calculator_app/view/dev.dart';
 import 'package:calculator_app/view/home.dart';
 import 'package:calculator_app/view/mul.dart';
-import 'package:calculator_app/view/sub.dart';
+import 'package:calculator_app/view/sub_.dart';
 import 'package:flutter/material.dart';
 
 void main() {
