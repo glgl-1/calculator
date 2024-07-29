@@ -234,4 +234,6 @@ class _DevcalcState extends State<Devcalc> {
     disPlay = '';
     numberReslt = [];
   }
+
+  
 }//END

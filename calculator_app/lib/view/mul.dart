@@ -43,7 +43,7 @@ class _MulcalcState extends State<Mulcalc> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('곱하기'),
-        titleTextStyle: TextStyle(
+        titleTextStyle: const TextStyle(
           fontSize: 25,
           color: Colors.black,
           fontWeight: FontWeight.bold,
