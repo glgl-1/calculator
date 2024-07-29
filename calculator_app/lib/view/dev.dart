@@ -197,7 +197,7 @@ class _DevcalcState extends State<Devcalc> {
   addeNumberlist() {
     // 나누기를 눌렀을 때 리스트에 저장
     if (numberController.text.isNotEmpty) {
-      numberReslt..add(double.parse(numberController.text));
+      numberReslt.add(double.parse(numberController.text));
       inPutContrrler.text = numberController.text += '/'; 
       numberController.text = '';
     }
@@ -214,7 +214,7 @@ class _DevcalcState extends State<Devcalc> {
     for (int i = 1; i < numberReslt.length; i++) {
       result /= numberReslt[i].toDouble();
     }
-    numberReslt..add(double.parse(numberController.text));
+    numberReslt.add(double.parse(numberController.text));
     numberController.text = result.toString();
     numberReslt = [];
     inPutContrrler.text = '';
