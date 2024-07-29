@@ -259,19 +259,6 @@ class _AddcalcState extends State<Addcalc> {
                   ),
                   child: const Text('=')
                 ),           
-                ElevatedButton(
-                  onPressed: () {
-                    buttonBackSpace();
-                  }, 
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.grey,
-                    foregroundColor: Colors.black,
-                    shape: BeveledRectangleBorder(
-                      borderRadius: BorderRadius.circular(5)
-                    )
-                  ),
-                  child: const Text('<-')
-                ),
               ],
             ),
           ],
@@ -327,13 +314,14 @@ class _AddcalcState extends State<Addcalc> {
 }
 
   buttonPressResult(){
-    if(calcDisplay.text.trim().isNotEmpty){
+    if(calcDisplay.text.trim().isNotEmpty && clacSum.length > 0){
         Sumclac sumResult = Sumclac(calcDisplay.text.trim(), clacSum[0]);
         calcDisplay.text = sumResult.addAction();
         eraseResult();
         print(calcDisplay.text);
         print(clacSum);
-      
+    }else{
+      calcDisplay = calcDisplay;
     }
 
     setState(() {});
@@ -343,13 +331,7 @@ class _AddcalcState extends State<Addcalc> {
     calcDisplay.text = '';
     clacSum.clear();
   }
-  buttonBackSpace(){
-    if (calcDisplay.text.length > 1) {
-        calcDisplay.text = calcDisplay.text.substring(0, calcDisplay.text.length - 1);
-      } else {
-        calcDisplay.text = '';
-  }
-}
+
   eraseResult(){
     if(clacSum.length >= 1) {
       clacSum.removeAt(0);
