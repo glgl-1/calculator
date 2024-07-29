@@ -55,7 +55,7 @@ class _MulcalcState extends State<Mulcalc> {
           TextField(
             controller: numController,
             textAlign: TextAlign.center,
-            decoration: InputDecoration(
+            decoration: const InputDecoration(
                 labelText: ' Click the numbers.',
                 labelStyle: TextStyle(
                   color: Colors.black,
