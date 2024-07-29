@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class Mulcalc extends StatefulWidget {
@@ -62,6 +63,7 @@ class _MulcalcState extends State<Mulcalc> {
                   fontSize: 25,
                   letterSpacing: 2,
                 )),
+                readOnly: true,
           ),
           Padding(
             padding: const EdgeInsets.fromLTRB(75, 100, 0, 0),
@@ -71,9 +73,9 @@ class _MulcalcState extends State<Mulcalc> {
                 ElevatedButton(
                   onPressed: () => buttonp1('1'),
                   style: ElevatedButton.styleFrom(
-                      backgroundColor: Color.fromARGB(255, 225, 15, 57),
+                      backgroundColor: const Color.fromARGB(255, 225, 15, 57),
                       shape: const CircleBorder()),
-                  child: Text('1',
+                  child: const Text('1',
                       style: TextStyle(
                         color: Colors.black,
                         fontSize: 60,
@@ -82,9 +84,9 @@ class _MulcalcState extends State<Mulcalc> {
                 ElevatedButton(
                   onPressed: () => buttonp1('2'),
                   style: ElevatedButton.styleFrom(
-                      backgroundColor: Color.fromARGB(255, 234, 121, 8),
-                      shape: CircleBorder()),
-                  child: Text('2',
+                      backgroundColor: const Color.fromARGB(255, 234, 121, 8),
+                      shape: const CircleBorder()),
+                  child: const Text('2',
                       style: TextStyle(
                         color: Colors.black,
                         fontSize: 60,
@@ -93,9 +95,9 @@ class _MulcalcState extends State<Mulcalc> {
                 ElevatedButton(
                   onPressed: () => buttonp1('3'),
                   style: ElevatedButton.styleFrom(
-                      backgroundColor: Color.fromARGB(255, 232, 232, 9),
-                      shape: CircleBorder()),
-                  child: Text('3',
+                      backgroundColor: const Color.fromARGB(255, 232, 232, 9),
+                      shape: const CircleBorder()),
+                  child: const Text('3',
                       style: TextStyle(
                         color: Colors.black,
                         fontSize: 60,
@@ -126,9 +128,9 @@ class _MulcalcState extends State<Mulcalc> {
               ElevatedButton(
                 onPressed: () => buttonp1('4'),
                 style: ElevatedButton.styleFrom(
-                    backgroundColor: Color.fromARGB(255, 101, 138, 234),
-                    shape: CircleBorder()),
-                child: Text('4',
+                    backgroundColor: const Color.fromARGB(255, 101, 138, 234),
+                    shape: const CircleBorder()),
+                child: const Text('4',
                     style: TextStyle(
                       color: Colors.black,
                       fontSize: 60,
@@ -137,9 +139,9 @@ class _MulcalcState extends State<Mulcalc> {
               ElevatedButton(
                 onPressed: () => buttonp1('5'),
                 style: ElevatedButton.styleFrom(
-                    backgroundColor: Color.fromARGB(255, 185, 119, 233),
-                    shape: CircleBorder()),
-                child: Text('5',
+                    backgroundColor: const Color.fromARGB(255, 185, 119, 233),
+                    shape: const CircleBorder()),
+                child: const Text('5',
                     style: TextStyle(
                       color: Colors.black,
                       fontSize: 60,
@@ -148,9 +150,9 @@ class _MulcalcState extends State<Mulcalc> {
               ElevatedButton(
                 onPressed: () => buttonp1('6'),
                 style: ElevatedButton.styleFrom(
-                    backgroundColor: Color.fromARGB(255, 230, 10, 178),
-                    shape: CircleBorder()),
-                child: Text('6',
+                    backgroundColor: const Color.fromARGB(255, 230, 10, 178),
+                    shape: const CircleBorder()),
+                child: const Text('6',
                     style: TextStyle(
                       color: Colors.black,
                       fontSize: 60,
@@ -164,9 +166,9 @@ class _MulcalcState extends State<Mulcalc> {
               ElevatedButton(
                 onPressed: () => buttonp1('7'),
                 style: ElevatedButton.styleFrom(
-                    backgroundColor: Color.fromARGB(255, 223, 147, 170),
-                    shape: CircleBorder()),
-                child: Text('7',
+                    backgroundColor: const Color.fromARGB(255, 223, 147, 170),
+                    shape: const CircleBorder()),
+                child: const Text('7',
                     style: TextStyle(
                       color: Colors.black,
                       fontSize: 60,
@@ -175,9 +177,9 @@ class _MulcalcState extends State<Mulcalc> {
               ElevatedButton(
                 onPressed: () => buttonp1('8'),
                 style: ElevatedButton.styleFrom(
-                    backgroundColor: Color.fromARGB(255, 241, 58, 153),
-                    shape: CircleBorder()),
-                child: Text('8',
+                    backgroundColor: const Color.fromARGB(255, 241, 58, 153),
+                    shape: const CircleBorder()),
+                child: const Text('8',
                     style: TextStyle(
                       color: Colors.black,
                       fontSize: 60,
@@ -186,9 +188,9 @@ class _MulcalcState extends State<Mulcalc> {
               ElevatedButton(
                 onPressed: () => buttonp1('9'),
                 style: ElevatedButton.styleFrom(
-                    backgroundColor: Color.fromARGB(255, 246, 175, 215),
-                    shape: CircleBorder()),
-                child: Text('9',
+                    backgroundColor: const Color.fromARGB(255, 246, 175, 215),
+                    shape: const CircleBorder()),
+                child: const Text('9',
                     style: TextStyle(
                       color: Colors.black,
                       fontSize: 60,
@@ -201,14 +203,13 @@ class _MulcalcState extends State<Mulcalc> {
             children: [
               ElevatedButton(
                 onPressed: () {
-                  int sum = int.parse(box) * int.parse(numController.text);
-                  numController.text = sum.toString();
-                  setState(() {});
+                  _calculateResult();
+                  
                 },
                 style: ElevatedButton.styleFrom(
-                    backgroundColor: Color.fromARGB(255, 125, 216, 243),
-                    shape: CircleBorder()),
-                child: Text('=',
+                    backgroundColor: const Color.fromARGB(255, 125, 216, 243),
+                    shape: const CircleBorder()),
+                child: const Text('=',
                     style: TextStyle(
                       color: Colors.black,
                       fontSize: 60,
@@ -218,9 +219,9 @@ class _MulcalcState extends State<Mulcalc> {
               ElevatedButton(
                 onPressed: () => buttonp1('0'),
                 style: ElevatedButton.styleFrom(
-                    backgroundColor: Color.fromARGB(255, 42, 199, 216),
-                    shape: CircleBorder()),
-                child: Text('0',
+                    backgroundColor: const Color.fromARGB(255, 42, 199, 216),
+                    shape: const CircleBorder()),
+                child: const Text('0',
                     style: TextStyle(
                       color: Colors.black,
                       fontSize: 60,
@@ -228,15 +229,12 @@ class _MulcalcState extends State<Mulcalc> {
               ),
               ElevatedButton(
                 onPressed: () {
-                  ope = '*';
-                  box = numController.text;
-                  numController.text = "";
-                  setState(() {});
+                  buttonp1('*');
                 },
                 style: ElevatedButton.styleFrom(
-                    backgroundColor: Color.fromARGB(255, 125, 216, 243),
-                    shape: CircleBorder()),
-                child: Text('*',
+                    backgroundColor: const Color.fromARGB(255, 125, 216, 243),
+                    shape: const CircleBorder()),
+                child: const Text('*',
                     style: TextStyle(
                       color: Colors.black,
                       fontSize: 60,
@@ -251,9 +249,9 @@ class _MulcalcState extends State<Mulcalc> {
                 numController.text = "";
               },
               style: ElevatedButton.styleFrom(
-                  backgroundColor: Color.fromARGB(255, 125, 216, 243),
-                  shape: CircleBorder()),
-              child: Text('C',
+                  backgroundColor: const Color.fromARGB(255, 125, 216, 243),
+                  shape: const CircleBorder()),
+              child: const Text('C',
                   style: TextStyle(
                     color: Colors.black,
                     fontSize: 60,
@@ -289,6 +287,24 @@ class _MulcalcState extends State<Mulcalc> {
     setState(() {});
     numController.text += value;
   }
-}
+
+  _calculateResult() {
+    final text = numController.text;
+    final parts = text.split('*');
+
+    if(parts.length == 2) {
+      try {
+        final num1 = int.parse(parts[0]);
+        final num2 = int.parse(parts[1]);
+        final result = num1 * num2;
+        numController.text = result.toString();
+      } catch (e) {
+        errorSnackBar();
+      }
+      }
+
+    }
+  }
+
 
  //End
