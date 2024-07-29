@@ -10,45 +10,18 @@ class Addcalc extends StatefulWidget {
 
 class _AddcalcState extends State<Addcalc> {
 
-late TextEditingController calcDisplay;
-  late String numpad1;
-  late String numpad2;
-  late String numpad3;
-  late String numpad4;
-  late String numpad5;
-  late String numpad6;
-  late String numpad7;
-  late String numpad8;
-  late String numpad9;
-  late String numpad0;
-  late String numpadPoint;
-  late String numpadPlus;
-  late String numpadEqual;
-  late TextEditingController clacSum;
+  late TextEditingController calcDisplay;
+  late List<double> clacSum;
   late TextEditingController clacSumResult;
 
   @override
   void initState() {
     super.initState();
     calcDisplay = TextEditingController();
-    numpad1 = "1";
-    numpad2 = "2";
-    numpad3 = "3";
-    numpad4 = "4";
-    numpad5 = "5";
-    numpad6 = "6";
-    numpad7 = "7";
-    numpad8 = "8";
-    numpad9 = "9";
-    numpad1 = "1";
-    numpad0 = "0";
-    numpadPoint = ".";
-    clacSum = TextEditingController();
+    clacSum = [];
     clacSumResult = TextEditingController();
     
   }
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -309,58 +282,66 @@ late TextEditingController calcDisplay;
 
   //// Functionm
   buttonPress1(){
-    calcDisplay.text = calcDisplay.text + numpad1;
+    calcDisplay.text = calcDisplay.text += '1';
   }
   buttonPress2(){
-    calcDisplay.text = calcDisplay.text + numpad2;
+    calcDisplay.text = calcDisplay.text += '2';
   }
   buttonPress3(){
-    calcDisplay.text = calcDisplay.text + numpad3;
+    calcDisplay.text = calcDisplay.text += '3';
   }
   buttonPress4(){
-    calcDisplay.text = calcDisplay.text + numpad4;
+    calcDisplay.text = calcDisplay.text += '4';
   }
   buttonPress5(){
-    calcDisplay.text = calcDisplay.text + numpad5;
+    calcDisplay.text = calcDisplay.text += '5';
   }
   buttonPress6(){
-    calcDisplay.text = calcDisplay.text + numpad6;
+    calcDisplay.text = calcDisplay.text += '6';
   }
   buttonPress7(){
-    calcDisplay.text = calcDisplay.text + numpad7;
+    calcDisplay.text = calcDisplay.text += '7';
   }
   buttonPress8(){
-    calcDisplay.text = calcDisplay.text + numpad8;
+    calcDisplay.text = calcDisplay.text += '8';
   }
   buttonPress9(){
-    calcDisplay.text = calcDisplay.text + numpad9;
+    calcDisplay.text = calcDisplay.text += '9';
   }
   buttonPress0(){
-    calcDisplay.text = calcDisplay.text + numpad0;
+    calcDisplay.text = calcDisplay.text += '0';
   }
   buttonPressPoint(){
     if (calcDisplay.text.contains(".") ==  true) {
       calcDisplay.text = calcDisplay.text;
     }else{
-      calcDisplay.text = calcDisplay.text + numpadPoint;
+      calcDisplay.text += '.';
     }
   }
   buttonPressPlus(){
-    calcDisplay = clacSum;
-    calcDisplay.text = '';
+    if(calcDisplay.text.trim().isNotEmpty){
+      clacSum.add(double.parse(calcDisplay.text.trim()));
+      calcDisplay.text = '';
+      print(clacSum);
+  }
 }
 
   buttonPressResult(){
-    Sumclac sumResult = Sumclac(calcDisplay.text.trim(), clacSum.text.trim());
-    calcDisplay.text = sumResult.addAction();
-    clacSum.text = '0';
-
+    if(calcDisplay.text.trim().isNotEmpty){
+        Sumclac sumResult = Sumclac(calcDisplay.text.trim(), clacSum[0]);
+        calcDisplay.text = sumResult.addAction();
+        eraseResult();
+        print(calcDisplay.text);
+        print(clacSum);
+      
+    }
 
     setState(() {});
   }
 
   buttonClearAll(){
     calcDisplay.text = '';
+    clacSum.clear();
   }
   buttonBackSpace(){
     if (calcDisplay.text.length > 1) {
@@ -368,6 +349,10 @@ late TextEditingController calcDisplay;
       } else {
         calcDisplay.text = '';
   }
-
 }
+  eraseResult(){
+    if(clacSum.length >= 1) {
+      clacSum.removeAt(0);
+    }
+  }
 }
