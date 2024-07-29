@@ -306,10 +306,14 @@ class _AddcalcState extends State<Addcalc> {
     }
   }
   buttonPressPlus(){
-    if(calcDisplay.text.trim().isNotEmpty){
+    if(calcDisplay.text.trim().isNotEmpty && clacSum.length == 0){
       clacSum.add(double.parse(calcDisplay.text.trim()));
-      calcDisplay.text = '';
+      calcDisplay.text = "";
       print(clacSum);
+    }else if(calcDisplay.text.trim().isNotEmpty && clacSum.length == 1){
+    Sumclac sumResult2 = Sumclac(calcDisplay.text.trim(), clacSum[0]);
+      calcDisplay.text = sumResult2.addAction();
+      eraseResult();
   }
 }
 
